@@ -1,0 +1,266 @@
+.site-header {
+  top:0;
+  height: 80px;
+  position: fixed;
+  width: 100vw;
+  background-color: $white;
+  z-index: 1001;
+  transition: box-shadow 400ms ease-in-out;
+  @include breakpoint(medium down){
+    display: flex;
+    align-items: center;
+  }
+  @include breakpoint(small down){
+    height: 64px;
+  }
+}
+.top-bar-left {
+  ul {
+    height: 80px;
+    margin:0;
+    list-style: none;
+    .home {
+      height: 80px;
+      font-family: $minion;
+      text-transform: uppercase;
+      font-size: 28px;
+      letter-spacing: 7px;
+    }
+  }
+}
+
+.top-bar .menu .home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    color: $black;
+    padding: 0 0 0 10px;
+  }
+}
+.top-bar .top-bar-right .menu > li {
+
+}
+.top-bar .top-bar-left .menu > li:not(.menu-text) > a {
+  padding:0;
+  font-size: 28px;
+  font-weight: 300;
+  &:hover {
+    background-color: $white;
+  }
+}
+
+
+.top-bar .top-bar-right .menu > li:not(.menu-text) > a {
+  padding:0;
+  font-size: 20px;
+  font-weight: 300;
+  @include breakpoint(small down){
+    font-size: 30px;
+  }
+  &:hover {
+    background-color: $white;
+    @include breakpoint(medium down) {
+      background-color: transparent;
+    }
+
+  }
+}
+
+.top-bar .menu li:not(:last-child) {
+  border-right: none;
+}
+.top-bar-right {
+  height: 80px;
+  // margin-right: 10px;
+  ul {
+    display: inline-flex;
+    height: inherit;
+    margin: 0;
+    width: 242px;
+    justify-content: space-between;
+    li {
+      height: inherit;
+      vertical-align: middle;
+      width: 65px;
+
+      @include underline-from-center;
+
+      a {
+        text-transform: uppercase;
+        height: inherit;
+        color: $black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .current_page_item, .current-menu-item {
+      &::before {
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
+.top-bar .menu a {
+  color: $black;
+  font-size: 20px;
+}
+
+.title-bar-title {
+  a {
+    font-family: $minion;
+    font-size: 24px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: $black;
+    font-weight: 300;
+  }
+}
+.hambo {
+  position: relative;
+  align-self: center;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1003;
+  width: 30px;
+  height: 16px;
+  overflow: hidden;
+  cursor: pointer;
+
+  span {
+    top: 0;
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    background: $black;
+    z-index: 1004;
+    transition: all 400ms ease-in-out;
+  }
+  span:nth-child(2) {
+    top: 50%;
+    margin-top: -1px;
+    width:17px;
+  }
+  span:nth-child(3){
+    top:100%;
+    margin-top: -2px;
+    width: 24px;
+  }
+}
+
+.theX {
+  span {
+    background: $white;
+    top:-100px;
+  }
+  span:nth-child(1) {
+    top: 50%;
+    width: 20px;
+    margin-top: -1px;
+    transform: rotate(45deg);
+  }
+  span:nth-child(2) {
+    top: 50%;
+    width: 20px;
+    margin-top: -1px;
+    transform: rotate(-45deg);
+  }
+  span:nth-child(3) {
+    margin-top:2px;
+  }
+}
+
+#mobile-menu {
+  position: absolute;
+  top: 0;
+  left: 101vw;
+  transition: all 400ms ease-in;
+  background-color: $black;
+  z-index:1202 !important;
+}
+
+
+.top-bar {
+  height: 80px;
+  // padding: 0 10px 0;
+  @include breakpoint(small down) {
+    padding: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    left:101vw;
+    top: 64px;
+    transition: all 400ms ease-in-out;
+  }
+  &::before, &::after {
+    content:none;
+  }
+  .top-bar-right {
+    @include breakpoint(medium down) {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    // left: 0;
+  }
+    .vertical {
+      background: transparent;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      justify-content: flex-start;
+      top: 0 !important;
+      ul {
+        height: 50%;
+        margin-top: 58px;
+        align-self: center;
+        li {
+          height: 70px;
+          width: 90%;
+          border-bottom: 1px solid $white;
+          a {
+            color: $white;
+            font-size: 30px;
+            font-weight: 400;
+            line-height: 80px;
+          }
+        }
+        li:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+.setGrey {
+  background-color: $black !important;
+  color: $white !important;
+  .title-bar {
+   .title-bar-title {
+     &:hover {
+       background: $black;
+     }
+     a {
+       color: $white;
+     }
+   }
+  }
+}
+
+.slideIn {
+  left: 0 !important;
+  // background-color: $black !important;
+  transition: all 400ms ease-in-out;
+}
+
+.addShaddow {
+  box-shadow: 1px 1px 15px lighten($black, 40%);
+}

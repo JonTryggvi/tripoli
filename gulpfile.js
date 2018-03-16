@@ -1,24 +1,30 @@
 /*jslint node: true */
 "use strict";
 
-var $           = require('gulp-load-plugins')();
-var argv        = require('yargs').argv;
-var gulp        = require('gulp');
+var $ = require('gulp-load-plugins')();
+var argv = require('yargs').argv;
+var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
-var merge       = require('merge-stream');
-var sequence    = require('run-sequence');
-var colors      = require('colors');
-var dateFormat  = require('dateformat');
-var del         = require('del');
-var cleanCSS    = require('gulp-clean-css');
+var merge = require('merge-stream');
+var sequence = require('run-sequence');
+var colors = require('colors');
+var dateFormat = require('dateformat');
+var del = require('del');
+var cleanCSS = require('gulp-clean-css');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = '';
+var URL = 'http://localhost:8888/tripoli/';
 
 // Check for --production flag
-var isProduction = !!(argv.production);
-
+// var isProduction = !!(argv.production);
+var isProduction;
+if (process.argv[2] == 'package') {
+  isProduction = true;
+} else {
+  isProduction = false;
+}
+console.log(isProduction);
 // Browsers to target when prefixing CSS.
 var COMPATIBILITY = [
   'last 2 versions',
@@ -39,32 +45,34 @@ var PATHS = {
     'assets/components/foundation-sites/js/foundation.util.*.js',
 
     // Paths to individual JS components defined below
-    'assets/components/foundation-sites/js/foundation.abide.js',
+    // 'assets/components/foundation-sites/js/foundation.abide.js',
     'assets/components/foundation-sites/js/foundation.accordion.js',
     'assets/components/foundation-sites/js/foundation.accordionMenu.js',
-    'assets/components/foundation-sites/js/foundation.drilldown.js',
+    // 'assets/components/foundation-sites/js/foundation.drilldown.js',
     'assets/components/foundation-sites/js/foundation.dropdown.js',
     'assets/components/foundation-sites/js/foundation.dropdownMenu.js',
-    'assets/components/foundation-sites/js/foundation.equalizer.js',
+    // 'assets/components/foundation-sites/js/foundation.equalizer.js',
     'assets/components/foundation-sites/js/foundation.interchange.js',
-    'assets/components/foundation-sites/js/foundation.magellan.js',
-    'assets/components/foundation-sites/js/foundation.offcanvas.js',
-    'assets/components/foundation-sites/js/foundation.orbit.js',
-    'assets/components/foundation-sites/js/foundation.responsiveMenu.js',
-    'assets/components/foundation-sites/js/foundation.responsiveToggle.js',
-    'assets/components/foundation-sites/js/foundation.reveal.js',
-    'assets/components/foundation-sites/js/foundation.slider.js',
-    'assets/components/foundation-sites/js/foundation.sticky.js',
-    'assets/components/foundation-sites/js/foundation.tabs.js',
+    // 'assets/components/foundation-sites/js/foundation.magellan.js',
+    // 'assets/components/foundation-sites/js/foundation.offcanvas.js',
+    // 'assets/components/foundation-sites/js/foundation.orbit.js',
+    // 'assets/components/foundation-sites/js/foundation.responsiveMenu.js',
+    // 'assets/components/foundation-sites/js/foundation.responsiveToggle.js',
+    // 'assets/components/foundation-sites/js/foundation.reveal.js',
+    // 'assets/components/foundation-sites/js/foundation.slider.js',
+    // 'assets/components/foundation-sites/js/foundation.sticky.js',
+    // 'assets/components/foundation-sites/js/foundation.tabs.js',
     'assets/components/foundation-sites/js/foundation.toggler.js',
     'assets/components/foundation-sites/js/foundation.tooltip.js',
-    'assets/components/foundation-sites/js/foundation.zf.responsiveAccordionTabs.js',
+    // 'assets/components/foundation-sites/js/foundation.zf.responsiveAccordionTabs.js',
 
 
     // Motion UI
     'assets/components/motion-ui/motion-ui.js',
 
     // Include your own custom scripts (located in the custom folder)
+
+
     'assets/javascript/custom/*.js',
   ],
   phpcs: [
@@ -91,9 +99,9 @@ var PATHS = {
 gulp.task('browser-sync', ['build'], function() {
 
   var files = [
-            '**/*.php',
-            'assets/images/**/*.{png,jpg,gif}',
-          ];
+    '**/*.php',
+    'assets/images/**/*.{png,jpg,gif}',
+  ];
 
   browserSync.init(files, {
     // Proxy address
@@ -107,14 +115,14 @@ gulp.task('browser-sync', ['build'], function() {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 gulp.task('sass', function() {
-  return gulp.src('assets/scss/foundation.scss')
+  return gulp.src('assets/scss/styles.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
     }))
     .on('error', $.notify.onError({
-        message: "<%= error.message %>",
-        title: "Sass Error"
+      message: "<%= error.message %>",
+      title: "Sass Error"
     }))
     .pipe($.autoprefixer({
       browsers: COMPATIBILITY
@@ -123,19 +131,21 @@ gulp.task('sass', function() {
     .pipe($.if(isProduction, cleanCSS()))
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
     .pipe(gulp.dest('assets/stylesheets'))
-    .pipe(browserSync.stream({match: '**/*.css'}));
+    .pipe(browserSync.stream({
+      match: '**/*.css'
+    }));
 });
 
 // Lint all JS files in custom directory
 gulp.task('lint', function() {
   return gulp.src('assets/javascript/custom/*.js')
     .pipe($.jshint())
-    .pipe($.notify(function (file) {
+    .pipe($.notify(function(file) {
       if (file.jshint.success) {
         return false;
       }
 
-      var errors = file.jshint.results.map(function (data) {
+      var errors = file.jshint.results.map(function(data) {
         if (data.error) {
           return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
         }
@@ -156,8 +166,8 @@ gulp.task('javascript', function() {
   return gulp.src(PATHS.javascript)
     .pipe($.sourcemaps.init())
     .pipe($.babel())
-    .pipe($.concat('foundation.js', {
-      newLine:'\n;'
+    .pipe($.concat('scripts.js', {
+      newLine: '\n;'
     }))
     .pipe($.if(isProduction, uglify))
     .pipe($.if(!isProduction, $.sourcemaps.write()))
@@ -169,7 +179,7 @@ gulp.task('javascript', function() {
 gulp.task('copy', function() {
   // Font Awesome
   var fontAwesome = gulp.src('assets/components/fontawesome/fonts/**/*.*')
-      .pipe(gulp.dest('assets/fonts'));
+    .pipe(gulp.dest('assets/fonts'));
 
   return merge(fontAwesome);
 });
@@ -180,18 +190,18 @@ gulp.task('package', ['build'], function() {
   var time = dateFormat(new Date(), "yyyy-mm-dd_HH-MM");
   var pkg = JSON.parse(fs.readFileSync('./package.json'));
   var title = pkg.name + '_' + time + '.zip';
+  var altTitle = 'tripoli-' + time + '.zip';
 
   return gulp.src(PATHS.pkg)
-    .pipe($.zip(title))
+    .pipe($.zip(altTitle))
     .pipe(gulp.dest('packaged'));
 });
 
 // Build task
 // Runs copy then runs sass & javascript in parallel
 gulp.task('build', ['clean'], function(done) {
-  sequence('copy',
-          ['sass', 'javascript', 'lint'],
-          done);
+  sequence('copy', ['sass', 'javascript', 'lint'],
+    done);
 });
 
 // PHP Code Sniffer task
@@ -206,36 +216,36 @@ gulp.task('phpcs', function() {
 });
 
 // PHP Code Beautifier task
-gulp.task('phpcbf', function () {
+gulp.task('phpcbf', function() {
   return gulp.src(PATHS.phpcs)
-  .pipe($.phpcbf({
-    bin: 'wpcs/vendor/bin/phpcbf',
-    standard: './codesniffer.ruleset.xml',
-    warningSeverity: 0
-  }))
-  .on('error', $.util.log)
-  .pipe(gulp.dest('.'));
+    .pipe($.phpcbf({
+      bin: 'wpcs/vendor/bin/phpcbf',
+      standard: './codesniffer.ruleset.xml',
+      warningSeverity: 0
+    }))
+    .on('error', $.util.log)
+    .pipe(gulp.dest('.'));
 });
 
 // Clean task
 gulp.task('clean', function(done) {
   sequence(['clean:javascript', 'clean:css'],
-            done);
+    done);
 });
 
 // Clean JS
 gulp.task('clean:javascript', function() {
   return del([
-      'assets/javascript/foundation.js'
-    ]);
+    'assets/javascript/scripts.js'
+  ]);
 });
 
 // Clean CSS
 gulp.task('clean:css', function() {
   return del([
-      'assets/stylesheets/foundation.css',
-      'assets/stylesheets/foundation.css.map'
-    ]);
+    'assets/stylesheets/styles.css',
+    'assets/stylesheets/styles.css.map'
+  ]);
 });
 
 // Default gulp task

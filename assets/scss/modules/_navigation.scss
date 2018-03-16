@@ -12,7 +12,7 @@
   > ul.menu {
     height: 100vh;
     padding: 1rem;
-
+    list-style: none;
     a {
       color: $white;
       font-weight: 600;
@@ -62,7 +62,7 @@
     font-weight: bold;
     font-size: 0.8rem;
     line-height: 1;
-
+    list-style: none;
     &:hover:not(.button) {
       background-color: #42525D;
     }
