@@ -17,10 +17,12 @@ add_image_size( 'featured-large', 1440, 400, true );
 add_image_size( 'featured-xlarge', 1920, 400, true );
 
 // Add additional image sizes
-add_image_size( 'fp-small', 640 );
-add_image_size( 'fp-medium', 1024 );
-add_image_size( 'fp-large', 1200 );
+add_image_size( 'fp-xsmall', 500 );
+add_image_size( 'fp-small', 1000 );
+add_image_size( 'fp-medium', 1280 );
+add_image_size( 'fp-large', 2000 );
 add_image_size( 'fp-xlarge', 1920 );
+add_image_size( 'fp-retina', 3000 );
 
 // Register the new image sizes for use in the add media modal in wp-admin
 function foundationpress_custom_sizes( $sizes ) {

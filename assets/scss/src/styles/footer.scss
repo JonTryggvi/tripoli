@@ -1,0 +1,58 @@
+footer {
+  .tripoli-footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid $grey;
+    //   max-width: 1180px;
+    height: auto;
+    margin: 0 auto;
+    flex-flow: row;
+    @include breakpoint(small down){
+      flex-flow: column;
+      height: auto;
+      justify-content: center;
+      align-items: center;
+    }
+    p {
+      display: inline-block;
+      margin-top: 19px;
+      font-size: 14px;
+      color: transparent;
+    }
+    .office-address {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-flow: row wrap;
+      height: 52px;
+
+      p {
+        color: $h2Grey;
+        margin: 0;
+        height: 22px;
+      }
+      a {
+        color: $h2Grey;
+        font-size: 14px;
+        height: 22px;
+      }
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 22px;
+        width: 22px;
+        text-align: center;
+       font-size: 14px;
+      }
+    }
+    .social {
+      display: inline-block;
+      width: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+    }
+  }
+}

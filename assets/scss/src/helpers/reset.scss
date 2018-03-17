@@ -1,0 +1,54 @@
+
+*:focus, *:active {
+  outline: none;
+}
+
+body{
+   height: 100%;
+}
+
+.accordion {
+  margin: auto;
+}
+
+.accordion-title {
+  padding: 0;
+  color: $black;
+  transition: all 400ms ease-in-out;
+  &:hover, &:visited, &:active, &:focus {
+    color: darken($black, 30%);
+  }
+  a {
+    transition: all 300ms ease-in-out;
+  }
+}
+
+.row {
+  @include breakpoint(xlarge down) {
+    width: 90vw;
+  }
+  &::before, &::after {
+    content:none;
+  }
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  &::before, &::after {
+    content:none;
+  }
+}
+
+.container {
+  // position: relative;
+  // top: 80px;
+  height: auto;
+}
+.is-relative {
+  position: relative;
+  top: 80px;
+  @include breakpoint(small down) {
+    top: 64px;
+  }
+}

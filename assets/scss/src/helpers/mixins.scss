@@ -1,0 +1,10 @@
+@mixin setAsolute($dim, $svg) {
+  position: absolute;
+  content: '';
+  width: $dim;
+  height: $dim;
+  background-image: url('../images/icons/#{$svg}.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
