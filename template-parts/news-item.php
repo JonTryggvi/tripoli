@@ -25,12 +25,13 @@
               $newsExcerpt = get_sub_field('text_block_sub_1');?>
         <div class="news__container__right">
           <div class="news__container__right__frame">
-              <div class="news__container__right__frame__img-small" data-interchange="[<?php echo $newsGallery[1]['sizes']['fp-small'] ?>, small], [<?php echo $newsGallery[1]['sizes']['fp-medium'] ?>, medium], [<?php echo $newsGallery[1]['sizes']['fp-large'] ?>, large], [<?php echo $newsGallery[1]['sizes']['fp-large'] ?>, xlarge], [<?php echo $newsGallery[1]['sizes']['fp-retina'] ?>, xxlarge]"></div>
+              <div class="news__container__right__frame__img-small" data-interchange="[<?php echo $newsGallery[1]['sizes']['fp-small'] ?>, small], [<?php echo $newsGallery[1]['sizes']['fp-medium'] ?>, medium], [<?php echo $newsGallery[1]['sizes']['fp-large'] ?>, large], [<?php echo $newsGallery[1]['sizes']['fp-large'] ?>, xlarge], [<?php echo $newsGallery[1]['sizes']['fp-retina'] ?>, xxlarge]">
+              </div>
           </div>
 
         <?php $smallImg2 = get_sub_field('img_block_sub_2'); ?>
           <div class="news__container__right__frame">
-            <div class="news__container__right__frame__img-small" data-interchange="[<?php echo $newsGallery[2]['sizes']['fp-small'] ?>, small], [<?php echo $newsGallery[2]['sizes']['fp-medium'] ?>, medium], [<?php echo $newsGallery[0]['sizes']['fp-large'] ?>, large], [<?php echo $newsGallery[2]['sizes']['fp-large'] ?>, xlarge], [<?php echo $newsGallery[2]['sizes']['fp-retina'] ?>, xxlarge]"></div>
+            <div class="news__container__right__frame__img-small" data-interchange="[<?php echo $newsGallery[2]['sizes']['fp-small'] ?>, small], [<?php echo $newsGallery[2]['sizes']['fp-medium'] ?>, medium], [<?php echo $newsGallery[2]['sizes']['fp-large'] ?>, large], [<?php echo $newsGallery[2]['sizes']['fp-large'] ?>, xlarge], [<?php echo $newsGallery[2]['sizes']['fp-retina'] ?>, xxlarge]"></div>
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
 	// Enqueue the main Stylesheet.
-	wp_enqueue_style( 'slick-stylesheet', 'http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css', array(), '2.9.2', 'all' );
+	wp_enqueue_style( 'slick-stylesheet', 'https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css', array(), '2.9.2', 'all' );
 	wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/assets/stylesheets/styles.css', array(), '2.9.2', 'all' );
 
 	// Deregister the jquery version bundled with WordPress.
