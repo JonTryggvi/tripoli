@@ -20,10 +20,10 @@ get_header(); ?>
 					if($isChosen):
 					?>
 
-			<div <?php post_class('fp-slider__fp-intro ') ?> id="project-<?php the_ID(); ?>" data-interchange="[<?php echo $setImg['sizes']['fp-small'] ?>, small], [<?php echo $setImg['sizes']['fp-medium'] ?>, medium], [<?php echo $setImg['sizes']['fp-large'] ?>, large], [<?php echo $setImg['sizes']['fp-large'] ?>, xlarge], [<?php echo $setImg['sizes']['fp-retina'] ?>, xxlarge]">
+			<div <?php post_class('fp-slider__fp-intro ') ?> id="project-<?php the_ID(); ?>"  data-interchange="[<?php echo $setImg['sizes']['fp-small'] ?>, small], [<?php echo $setImg['sizes']['fp-medium'] ?>, medium], [<?php echo $setImg['sizes']['fp-large'] ?>, large], [<?php echo $setImg['sizes']['fp-large'] ?>, xlarge], [<?php echo $setImg['sizes']['fp-retina'] ?>, xxlarge]">
 
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-					<div class="row">
+					<div class="row erow" data-work="<?php the_permalink(); ?>">
 						<div class="break-text">
 							<h1 class="fp-slider__fp-intro__h1 "><a class="frontpage-link typewrite tw-<?php echo $i; ?>" href="<?php the_permalink(); ?>" data-text="<?php the_title(); ?>" ></a></h1>
 						</div>

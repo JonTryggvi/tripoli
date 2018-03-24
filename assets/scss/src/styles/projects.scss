@@ -1,18 +1,38 @@
 // .single-post {
 //   margin-top: 42px;
 // }
+#initSlides {
+
+  position: absolute;
+  right: 15px;
+  top: 0;
+  @include show-for(medium);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  color: $h2Grey;
+  justify-content: space-between;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  img {
+    margin-left: 0 auto;
+  }
+}
 
 .single-project {
   // padding: 0 10px 0;
-  margin-top: 120px;
+  margin-top: 80px;
   @include breakpoint(small down) {
-    margin-top: 87px;
+    margin-top: 64px;
     padding: 0;
   }
 
   header {
     position: relative;
     min-height: 70px;
+    margin: 36px 0;
+    padding-bottom: 18px;
     @include breakpoint(medium down) {
       min-height: 70px;
       display: flex;
@@ -49,6 +69,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 17.5px;
+  margin-bottom: 18px;
   @include breakpoint(small down) {
     margin-top: 5px;
   }
@@ -66,27 +87,13 @@
     }
   }
 
-  #initSlides {
-    @include show-for(medium);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    color: $h2Grey;
-    justify-content: space-between;
-    font-size: 16px;
-    text-transform: uppercase;
-
-    img {
-      margin-left: 0 auto;
-    }
-  }
 }
 
 .entry-content {
   display: flex;
   flex-direction: column;
   margin-top: 48px;
-
+  position: relative;
   @include breakpoint(small down) {
     margin-top: 18px;
   }
@@ -143,7 +150,7 @@
     cursor: url('../images/icons/slideshow-white.svg'), auto;
 
     &::after {
-      opacity: 1;
+      // opacity: 1;
 
     }
 
@@ -205,7 +212,7 @@
       cursor: url('../images/icons/slideshow-white.svg'), auto;
 
       &::after {
-        opacity: 1;
+        // opacity: 1;
       }
 
       .innerRatio-left {
@@ -261,7 +268,7 @@
       cursor: url('../images/icons/slideshow-white.svg'), auto;
 
       &::after {
-        opacity: 1;
+        // opacity: 1;
       }
 
       .innerRatio-right {
@@ -284,14 +291,14 @@
 
 .project-footer {
   border-top: 1px solid $lineGrey;
-  margin-top: 124px;
+  margin-top: 62px;
   @include breakpoint(small down) {
-    margin-top: 40px;
+    margin-top: 20px;
     padding-bottom: 86px;
   }
 
   .description {
-    margin: 36px 0;
+    margin: 18px 0;
     font-size: 16px;
     @include breakpoint(small down) {
       font-size: 14px;
@@ -317,7 +324,7 @@
   }
 
   .singnature {
-    margin: 36px 0;
+    margin: 18px 0;
     font-size: 16px;
     @include breakpoint(small down) {
       font-size: 14px;
@@ -337,7 +344,7 @@
   }
 
   .thanks {
-    margin: 36px 0 87px;
+    margin: 18px 0;
     font-size: 16px;
     @include breakpoint(small down) {
       font-size: 14px;
@@ -448,20 +455,26 @@
 }
 
 .modal__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
-  max-height: calc(90vh - 80px);
+  min-height: calc(90vh - 80px);
   width: 90vw;
   margin: 0 auto;
+  // overflow-y: scroll;
   // padding:0 10px 0;
-  @include aspect-ratio(144, 90, 'modal-img');
+  // @include aspect-ratio(144, 90, 'modal-img');
   @include breakpoint(small down) {
-    margin-top: 59px;
+    margin-top: 19px;
   }
 
   .modal-img {
+    display: block;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100%;
     background-position: center;
+    width: 100%;
     @include breakpoint(large down) {
       background-size: 100%;
     }
@@ -469,11 +482,11 @@
 }
 
 .setHeightModal {
-  max-height: calc(90vh - 80px);
-  @include aspect-ratio(90, 144, 'modal-img');
+  // max-height: calc(90vh - 80px);
+  // @include aspect-ratio(90, 144, 'modal-img');
 
   .setSize {
-    background-size: contain;
+    background-size: 100%;
   }
 }
 
@@ -497,6 +510,8 @@
   align-items: center;
   color: $black;
   font-weight: 600;
+
+  margin: 18px 0 87px;
 
   &:hover {
     color: $black;

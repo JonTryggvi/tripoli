@@ -1,14 +1,15 @@
 .work_container {
   // grid-area: work;
 }
+
 .work {
   display: flex;
   width: calc(100% - 20px);
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  margin-top: 147px;
-  @include breakpoint(large down){
+  margin-top: 80px;
+  @include breakpoint(large down) {
     justify-content: space-between;
 
   }
@@ -17,21 +18,25 @@
     justify-content: space-between;
 
   }
-  @include breakpoint(small down){
-    margin-top: 90px;
+  @include breakpoint(small down) {
+    margin-top: 64px;
     // justify-content: space-around;
   }
 
   .hidden {
     visibility: hidden;
   }
-  .noHeight{
+
+  .noHeight {
     height: 0;
   }
+
   &__container:last-child {
     margin-left: 10px;
   }
-  &__container, .hidden{
+
+  &__container,
+  .hidden {
     position: relative;
     overflow: hidden;
     width: calc(8% - 10px);
@@ -40,51 +45,58 @@
     margin-bottom: 70px;
     @include breakpoint(xxlarge down) {
       width: calc(16.66% - 10px);
-       margin-bottom: 15px;
+      margin-bottom: 15px;
     }
     @include breakpoint(xlarge down) {
       width: calc(20% - 10px);
       margin-bottom: 14px;
     }
-    @include breakpoint(large down){
+    @include breakpoint(large down) {
       width: calc(25% - 10px);
     }
 
-    @include breakpoint(medium down){
+    @include breakpoint(medium down) {
       // width: 280px;
       // height: 280px;
       cursor: pointer;
     }
-    @include breakpoint(small down){
+    @include breakpoint(small down) {
       width: calc(50% - 7px);
       margin-bottom: 14px;
     }
 
     @include aspect-ratio(1, 1, 'work__container__img');
-    &:hover, &:focus, &:active {
+
+    &:active,
+    &:focus,
+    &:hover {
       .work__container__img {
         //  transform: scale(1.04);
       }
+
       .work__container__item {
-         background-color: rgba(0,0,0,0.5);
+        background-color: $white;
+
         h2 {
-          @include breakpoint(large down){
+          @include breakpoint(large down) {
             font-size: 1.1rem;
           }
+
           a {
             display: flex;
             justify-content: center;
             text-align: center;
-            color: $white;
-            text-shadow: 0px 1px 2px transparentize($black, 0.5);
+            color: $black;
+            // text-shadow: 0 1px 2px transparentize($black, 0.5);
             @include breakpoint(small down) {
               line-height: 1;
-               font-size: 1.1rem;
+              font-size: 1.1rem;
             }
           }
         }
       }
     }
+
     &__img {
       transform: scale(1);
       background-position: center;
@@ -94,6 +106,7 @@
       z-index: 1;
       transition: all 600ms ease-in-out;
     }
+
     &__item {
       position: absolute;
       width: 100%;
@@ -107,12 +120,13 @@
       @include breakpoint(small down) {
         width: 100%;
       }
+
       h2 {
         line-height: 30px;
         width: 98%;
         height: 100%;
         text-align: center;
-        word-break:normal;
+        word-break: normal;
 
         a {
           text-align: center;
@@ -128,7 +142,7 @@
           transition: all 300ms ease-in;
           font-size: rem-calc(28);
           width: auto;
-          @include breakpoint(medium down){
+          @include breakpoint(medium down) {
             font-size: rem-calc(20);
             line-height: 20px;
           }
