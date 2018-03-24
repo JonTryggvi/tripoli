@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
-    <title>Shape Copy</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Frontpage-1-Left-Arrow" transform="translate(-20.000000, -476.000000)" fill-rule="nonzero" fill="#5E5E5E">
-            <polygon id="Shape-Copy" transform="translate(34.000000, 490.000000) rotate(-180.000000) translate(-34.000000, -490.000000) " points="34 476 31.5325 478.4675 41.2975 488.25 20 488.25 20 491.75 41.2975 491.75 31.5325 501.5325 34 504 48 490"></polygon>
-        </g>
+  <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+  <title>Shape Copy</title>
+  <desc>Created with Sketch.</desc>
+  <defs></defs>
+  <g id="Page-1" stroke="#F2F2F2" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Frontpage-1-Left-Arrow" transform="translate(-20.000000, -476.000000)" fill-rule="nonzero" fill="#5E5E5E">
+      <polygon id="Shape-Copy" transform="translate(34.000000, 490.000000) rotate(-180.000000) translate(-34.000000, -490.000000) " points="34 476 31.5325 478.4675 41.2975 488.25 20 488.25 20 491.75 41.2975 491.75 31.5325 501.5325 34 504 48 490"></polygon>
     </g>
+  </g>
 </svg>

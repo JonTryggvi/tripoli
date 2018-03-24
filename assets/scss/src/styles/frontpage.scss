@@ -1,6 +1,7 @@
 .home {
   height: 100vh;
 }
+
 #front-hero {
   position: relative;
   display: flex;
@@ -10,6 +11,7 @@
 
 .fp-slider {
   position: relative;
+
   &__fp-intro {
     display: flex;
     flex-direction: column;
@@ -24,29 +26,40 @@
   }
 }
 
-.row {
-  .break-text {
-    display: inline-block;
+.erow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  cursor: pointer;
 
+  .break-text {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
     width: 823px;
-    @include breakpoint(small down){
+    @include breakpoint(small down) {
       width: 282px;
     }
+
     .fp-slider__fp-intro__h1 {
 
       display: inline-block;
       font-family: $minion;
       color: $black;
-      font-size: 50px;
-      margin-top: 82px;
-      margin-left:10px;
+      font-size: 62px;
+      // margin-top: 82px;
+      // margin-left:10px;
+      text-align: center;
       text-transform: uppercase;
       word-wrap: break-word;
 
-      @include breakpoint(small down) {
+      @include breakpoint(medium down) {
         font-size: 32px;
 
       }
+
       .frontpage-link {
         z-index: 99999999999999999;
         color: $black;
@@ -54,8 +67,9 @@
         padding: 0 7px;
         line-height: 58px;
         box-decoration-break: clone;
+
         @include breakpoint(small down) {
-           line-height: 46px;
+          line-height: 46px;
         }
       }
     }

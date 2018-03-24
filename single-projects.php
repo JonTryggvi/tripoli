@@ -9,24 +9,20 @@
 get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
+<button type="button" name="button" id="initSlides" data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover="false" tabindex="1" title="Slideshow" data-position="bottom" data-alignment="center"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/icons/slideshow.svg'; ?>" alt=""> </button>
 <div id="single-post" class="row single-post" role="main">
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 		<?php $gallery = get_field('project_gallery'); ?>
 	<article class="main-content single-project" id="post-<?php the_ID(); ?>">
-		<header>
-			<h1 class="entry-title"><?php the_title(); ?></h1>
-		</header>
-		<section class="sub_title">
-			<h2><?php the_field('sub_title'); ?></h2>
-			<?php if(!empty($gallery)): ?>
-			<button type="button" name="button" id="initSlides" data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover="false" tabindex="1" title="Slideshow" data-position="bottom" data-alignment="center"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/icons/slideshow.svg'; ?>" alt=""> </button>
-		  <?php endif; ?>
-		</section>
+
 		<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 		<div class="entry-content">
 
 			<?php if(!empty($gallery)): ?>
+
+
+
 			<section>
 
 				<div class="projectImg-head" data-num="0">
@@ -71,10 +67,17 @@ get_header(); ?>
 				</div>
 			</section>
 			<?php endif; ?>
+
 			<button type="button" name="button" id="initSlidesMobile" >slideshow  <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/icons/slideshow.svg'; ?>" alt=""> </button>
 		</div>
 
 		<footer class="project-footer">
+			<header>
+				<h1 class="entry-title"><?php the_title(); ?></h1>
+				<section class="sub_title">
+					<h2><?php the_field('sub_title'); ?></h2>
+				</section>
+			</header>
 
 			<?php
 			$description = get_field('project_description');
@@ -149,14 +152,16 @@ get_header(); ?>
 					if($value2['width'] > $value2['height']) {
 						$imgIsPortmodal = '';
 						$setSize = '';
+						
 					}else {
 						$imgIsPortmodal = 'setHeightModal';
 						$setSize = 'setSize';
+
 					}
 					?>
 				<div>
 					<div class="modal__placeholder <?php echo $imgIsPortmodal; ?>">
-						<div class="modal-img <?php echo $setSize; ?>" data-interchange="[<?php echo $value2['sizes']['fp-small'] ?>, small], [<?php echo $value2['sizes']['fp-medium'] ?>, medium], [<?php echo $value2['sizes']['fp-large'] ?>, large], [<?php echo $value2['sizes']['fp-large'] ?>, xlarge], [<?php echo $value2['sizes']['fp-retina'] ?>, xxlarge]" ></div>
+						<img class="modal-img <?php echo $setSize; ?>" data-interchange="[<?php echo $value2['sizes']['fp-small']; ?>, small], [<?php echo $value2['sizes']['fp-medium']; ?>, medium], [<?php echo $value2['sizes']['fp-large']; ?>, large], [<?php echo $value2['sizes']['fp-large']; ?>, xlarge], [<?php echo $value2['sizes']['fp-retina']; ?>, xxlarge]" />
 					</div>
 					<section class="modal__info">
 						<p class="modal__info__text"><?php the_title(); ?></p>
