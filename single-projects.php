@@ -152,16 +152,20 @@ get_header(); ?>
 					if($value2['width'] > $value2['height']) {
 						$imgIsPortmodal = '';
 						$setSize = '';
-						
+						$isPort = false;
 					}else {
 						$imgIsPortmodal = 'setHeightModal';
 						$setSize = 'setSize';
-
+						$isPort = true;
 					}
 					?>
 				<div>
 					<div class="modal__placeholder <?php echo $imgIsPortmodal; ?>">
+						<?php if(!$isPort) :?>
 						<img class="modal-img <?php echo $setSize; ?>" data-interchange="[<?php echo $value2['sizes']['fp-small']; ?>, small], [<?php echo $value2['sizes']['fp-medium']; ?>, medium], [<?php echo $value2['sizes']['fp-large']; ?>, large], [<?php echo $value2['sizes']['fp-large']; ?>, xlarge], [<?php echo $value2['sizes']['fp-retina']; ?>, xxlarge]" />
+					<?php else : ?>
+						<div class="modal-img <?php echo $setSize; ?>" data-interchange="[<?php echo $value2['sizes']['fp-small']; ?>, small], [<?php echo $value2['sizes']['fp-medium']; ?>, medium], [<?php echo $value2['sizes']['fp-large']; ?>, large], [<?php echo $value2['sizes']['fp-large']; ?>, xlarge], [<?php echo $value2['sizes']['fp-retina']; ?>, xxlarge]" ></div>
+					<?php endif; ?>
 					</div>
 					<section class="modal__info">
 						<p class="modal__info__text"><?php the_title(); ?></p>

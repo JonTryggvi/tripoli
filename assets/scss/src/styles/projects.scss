@@ -482,11 +482,11 @@
 }
 
 .setHeightModal {
-  // max-height: calc(90vh - 80px);
-  // @include aspect-ratio(90, 144, 'modal-img');
+  max-height: calc(90vh - 80px);
+  @include aspect-ratio(90, 144, 'modal-img');
 
   .setSize {
-    background-size: 100%;
+    background-size: contain;
   }
 }
 
