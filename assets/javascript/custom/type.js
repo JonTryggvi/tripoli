@@ -107,40 +107,40 @@ $('.fp-slider__fp-intro__h1 ').css('opacity', '0').css('transition', 'all 300ms 
 // console.log(window.location.origin+" : "+root);
 if (window.location.pathname == extension) {
 
-  // setTimeout(function() {
+  setTimeout(function() {
 
-  $('.fp-slider__fp-intro__h1 ').css('opacity', '1');
-  var text = $('.typewrite').data('text');
-  var text2 = text.split(" ");
-  if ($(window).width() < 800) {
-    // console.log('lilli');
-    for (var j = 0; j < text2.length; j = j + 2) {
-      if (text2.length > 2) {
-        text2[j] = text2[j] + "<br />";
+    $('.fp-slider__fp-intro__h1 ').css('opacity', '1');
+    var text = $('.typewrite').data('text');
+    var text2 = text.split(" ");
+    if ($(window).width() < 800) {
+      // console.log('lilli');
+      for (var j = 0; j < text2.length; j = j + 2) {
+        if (text2.length > 2) {
+          text2[j] = text2[j] + "<br />";
+        }
+      }
+
+    } else {
+      // console.log('stóri');
+      for (var t = 2; t < text2.length; t = t + 3) {
+        if (text2.length > 2) {
+          text2[t] = text2[t] + "<br />";
+        }
       }
     }
 
-  } else {
-    // console.log('stóri');
-    for (var t = 2; t < text2.length; t = t + 3) {
-      if (text2.length > 2) {
-        text2[t] = text2[t] + "<br />";
-      }
-    }
-  }
+
+    text2 = text2.join(" ");
+    // typeWriter(text, 0);
+    $('.typewrite').typeIt({
+      strings: [text2],
+      cursor: false,
+      speed: 30,
+      lifeLike: false
+    });
 
 
-  text2 = text2.join(" ");
-  // typeWriter(text, 0);
-  $('.typewrite').typeIt({
-    strings: [text2],
-    cursor: false,
-    speed: 30,
-    lifeLike: false
-  });
-
-
-  // }, 2000);
+  }, 2000);
 
 }
 // }
