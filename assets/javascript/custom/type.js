@@ -71,17 +71,17 @@ function setText() {
   }
 
   text2 = text2.join(" ");
-  // setTimeout(function() {
-  //  clearTimeout(typeWriter(text, 0));
-  $('.fp-slider__fp-intro__h1 ').css('opacity', '1');
-  //  typeWriter(text, 0);
-  $('.typewrite').typeIt({
-    strings: [text2],
-    cursor: false,
-    speed: 50,
-    lifeLike: true
-  });
-  // }, 500);
+  setTimeout(function() {
+    clearTimeout(typeWriter(text, 0));
+    $('.fp-slider__fp-intro__h1 ').css('opacity', '1');
+    //  typeWriter(text, 0);
+    $('.typewrite').typeIt({
+      strings: [text2],
+      cursor: false,
+      speed: 50,
+      lifeLike: true
+    });
+  }, 500);
 }
 
 $('.slick-next').click(function() {

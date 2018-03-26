@@ -1,9 +1,13 @@
 .slick-arrow {
   position: fixed;
-  top: 0;
-  height: 100%;
+  top: 80px;
+  height: calc(100% - 80px);
   cursor: pointer;
   transition: all 500ms ease-in-out;
+  @include breakpoint(small down) {
+    top: 64px;
+    height: calc(100% - 64px);
+  }
 }
 
 .modal-slick-prev,
@@ -21,12 +25,16 @@
     position: absolute;
     content: '';
     top: 50%;
-    margin-top: -(28/2)*1px;
+    margin-top: -(32/2)*1px;
     left: -52px;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
+    background-color: rgba($white,0.7);
     background-image: url("../images/icons/prevArrow.svg");
     transform: scale(0);
+    background-size: 28px;
+    background-repeat: no-repeat;
+    background-position: center;
     @include breakpoint(small down) {
       margin-top: -(20/2)*1px;
       left: -32px;
@@ -78,11 +86,15 @@
     position: absolute;
     content: '';
     top: 50%;
-    margin-top: -(28/2)*1px;
+    margin-top: -(32/2)*1px;
     right: -52px;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
+    background-color: rgba($white,0.7);
     background-image: url("../images/icons/nextArrow.svg");
+    background-size: 28px;
+    background-repeat: no-repeat;
+    background-position: center;
     text-shadow: 1px 1px #FFF;
     @include breakpoint(small down) {
       margin-top: -(20/2)*1px;
@@ -117,12 +129,21 @@
   }
 }
 
+.modal-slick-next {
+  width: 75vw;
+}
+
+.modal-slick-prev {
+  width: 25vw;
+}
+
 .modal-slick-next,
 .modal-slick-prev {
+  cursor: pointer;
   position: fixed;
   top: 0;
   height: calc(100vh - 80px);
-  width: 40vw;
+  // width: 40vw;
   @include breakpoint(small down) {
     width: 10vw;
     margin-top: 59px;
