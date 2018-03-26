@@ -4,7 +4,7 @@
   <title>Shape</title>
   <desc>Created with Sketch.</desc>
   <defs></defs>
-  <g id="Page-1" stroke="#F2F2F2" stroke-width="1" fill="none" fill-rule="evenodd">
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
     <g id="Frontpage-1-Right-Arrow" transform="translate(-1392.000000, -476.000000)" fill-rule="nonzero" fill="#5E5E5E">
       <polygon id="Shape" points="1406 476 1403.5325 478.4675 1413.2975 488.25 1392 488.25 1392 491.75 1413.2975 491.75 1403.5325 501.5325 1406 504 1420 490"></polygon>
     </g>

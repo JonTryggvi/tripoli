@@ -2,21 +2,24 @@
   // padding: 0 10px 0;
   margin-top: 140px;
   margin-bottom: 90px;
-  @include breakpoint(small down){
+  @include breakpoint(small down) {
     padding: 0;
     margin-top: 87px;
   }
+
   &__h2 {
     font-size: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 16px;
   }
-  &__flexContainer{
+
+  &__flexContainer {
     display: flex;
     justify-content: space-between;
     max-width: 1600px;
-    @include breakpoint(medium down){
+    @include breakpoint(medium down) {
       flex-flow: column;
     }
+
     &__img {
       width: 50%;
       height: 105vh;
@@ -27,34 +30,37 @@
       // @include breakpoint(large down){
       //   width: 100%;
       // }
-      @include breakpoint(medium down){
+      @include breakpoint(medium down) {
         width: 100%;
 
       }
-      @include breakpoint(small down){
+      @include breakpoint(small down) {
         // height: 234px;
         height: 80vh;
         background-size: contain;
       }
     }
+
     main {
       columns: 1;
       width: 50%;
       padding-left: 20px;
       margin-top: -5px;
-      @include breakpoint(medium down){
+      @include breakpoint(medium down) {
         width: 100%;
         padding-left: 0;
       }
+
       p {
         font-size: 16px;
         letter-spacing: -0.17px;
         line-height: 24px;
-        @include breakpoint(small down){
+        @include breakpoint(small down) {
           font-size: 14px;
         }
 
       }
+
       .founders {
         box-sizing: content-box;
         text-transform: uppercase;
@@ -63,17 +69,20 @@
         padding-bottom: 10px;
         border-bottom: 1px solid $grey;
       }
+
       .info {
         margin-bottom: 10px;
         font-size: 16px;
-        @include breakpoint(small down){
+        @include breakpoint(small down) {
           margin-bottom: 40px;
           font-size: 14px;
         }
+
         .name {
           margin-bottom: 0;
           font-weight: 600;
         }
+
         .email {
           color: $black;
           @include underline-reveal;
@@ -81,6 +90,7 @@
             font-size: 14px;
           }
         }
+
         .tel {
           color: $black;
           @include underline-reveal;
@@ -90,10 +100,12 @@
         }
 
       }
+
       .info:last-child {
         position: relative;
-        &::after{
-          @include breakpoint(small down){
+
+        &::after {
+          @include breakpoint(small down) {
             position: absolute;
             content: '';
             width: 100%;
