@@ -72,7 +72,7 @@ function setText() {
 
   text2 = text2.join(" ");
   setTimeout(function() {
-    clearTimeout(typeWriter(text, 0));
+    // clearTimeout(typeWriter(text, 0));
     $('.fp-slider__fp-intro__h1 ').css('opacity', '1');
     //  typeWriter(text, 0);
     $('.typewrite').typeIt({
@@ -140,7 +140,7 @@ if (window.location.pathname == extension) {
     });
 
 
-  }, 2000);
+  }, 500);
 
 }
 // }
