@@ -4,3 +4,16 @@ $(window).load(function() {
   });
   // console.log('load is done');
 });
+
+
+
+// console.log(isLandScape);
+
+window.addEventListener("orientationchange", function () {
+  setTimeout(() => {
+    isLandScape = window.innerHeight < window.innerWidth ? true : false;
+    // console.log(isLandScape);
+    onMobileOrientChange(isLandScape);
+  }, 200);
+  
+});
