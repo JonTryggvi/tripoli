@@ -26,18 +26,18 @@ function fix() {
 //   // window.location.href = link;
 // });
 
-$(document).click(function (e) {
+$(document).on('click', function (e) {
   // console.log(e.target.className);
   if (e.target.className.includes('erow') ) {
     var link = $(e.target).attr('data-work');
     window.location.href = link;
   } else if (e.target.className.includes('modal-slick-next')) {
     checkIfImgPort(1);
-  
   } else if (e.target.className.includes('modal-slick-prev')) {
     checkIfImgPort(-1);
   }
 });
+
 
 // if(window.location.pathname === '/tripoli/') {
 $('.click-left').on('mouseenter mouseleave', function(e) {

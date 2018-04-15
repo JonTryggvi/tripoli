@@ -36,7 +36,23 @@ function checkIfImgPort(b_f) {
 
   if (modalImg[preNextI].classList.contains('setSize')) {
     $('.modal').addClass('modalMinHeight');
-  } else {
+    $('.slick-active').css('transform', 'translateY(0)');
+  } else {   
     $('.modal').removeClass('modalMinHeight');
+    $('.slick-active').css('transform','translateY(-40px)');
   }
 }
+
+$('.modal').on('swipe', function (event, slick, direction) {
+  console.log(direction);
+  switch (direction) {
+    case 'left':
+      checkIfImgPort(1);
+      break;
+    case 'right':
+      checkIfImgPort(-1);
+      break;
+    default:
+      break;
+  }
+});

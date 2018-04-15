@@ -1,5 +1,6 @@
 .slick-arrow {
   position: fixed;
+  
   top: 80px;
   height: calc(100% - 80px);
   cursor: pointer;
@@ -7,6 +8,13 @@
   @include breakpoint(small down) {
     top: 64px;
     height: calc(100% - 64px);
+  }
+  &:before {
+    margin-top: -(32 / 2)*1px;
+    @include breakpoint(small down) {
+      margin-top: -(20 / 2)*1px;
+      display: none;
+    }
   }
 }
 
@@ -25,7 +33,7 @@
     position: absolute;
     content: '';
     top: 50%;
-    margin-top: -((32 + 80) / 2)*1px;
+    
     left: -52px;
     width: 32px;
     height: 32px;
@@ -36,7 +44,7 @@
     background-repeat: no-repeat;
     background-position: center;
     @include breakpoint(small down) {
-      margin-top: -((20 + 64) / 2)*1px;
+      
       left: -32px;
       width: 20px;
       height: 20px;
@@ -92,7 +100,7 @@
     position: absolute;
     content: '';
     top: 50%;
-    margin-top: -((32 + 80) / 2)*1px;
+    
     right: -52px;
     width: 32px;
     height: 32px;
@@ -103,7 +111,7 @@
     background-position: center;
     text-shadow: 1px 1px #FFF;
     @include breakpoint(small down) {
-      margin-top: -((20 + 64) / 2)*1px;
+      
       right: -32px;
       width: 20px;
       height: 20px;
@@ -159,6 +167,12 @@
     margin-top: 0px;
     opacity: 1;
   }
+  &:before {
+    margin-top: -((32 + 80) / 2)*1px;
+    @include breakpoint(small down) {
+      margin-top: -((20 + 64) / 2)*1px;
+    }
+  }
 }
 
 .click-left {
@@ -188,8 +202,16 @@
     align-items: center;
     height: auto;
     .slick-slide {
+      @include breakpoint(medium down){
+       transform: translateY(0);
+      }
       height: auto;
     }
   }
   
+}
+.translateY {
+  @include breakpoint(medium down){
+    transform: translateY(-40px);
+  }
 }
