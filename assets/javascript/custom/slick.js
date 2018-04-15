@@ -119,10 +119,4 @@
     $('.modal').slick('unslick');
   });
 
-  
-
- 
-  
-
-
 })(jQuery);
