@@ -1,5 +1,6 @@
 .slick-arrow {
   position: fixed;
+  
   top: 80px;
   height: calc(100% - 80px);
   cursor: pointer;
@@ -7,6 +8,13 @@
   @include breakpoint(small down) {
     top: 64px;
     height: calc(100% - 64px);
+  }
+  &:before {
+    margin-top: -(32 / 2)*1px;
+    @include breakpoint(medium down) {
+      margin-top: -(20 / 2)*1px;
+      display: none;
+    }
   }
 }
 
@@ -25,18 +33,18 @@
     position: absolute;
     content: '';
     top: 50%;
-    margin-top: -(32/2)*1px;
+    
     left: -52px;
     width: 32px;
     height: 32px;
-    background-color: rgba($white,0.7);
+    background-color: rgba($white,0);
     background-image: url("../images/icons/prevArrow.svg");
     transform: scale(0);
     background-size: 28px;
     background-repeat: no-repeat;
     background-position: center;
     @include breakpoint(small down) {
-      margin-top: -(20/2)*1px;
+      
       left: -32px;
       width: 20px;
       height: 20px;
@@ -49,6 +57,10 @@
   &:hover {
     // border-left: 60px solid rgba($white,0.7);
     @include breakpoint(small down) {
+      &::before {
+        opacity: 0;
+        transform: scale(1);
+      }
       // border-left: 37px solid rgba($white,0.7);
     }
 
@@ -59,7 +71,9 @@
   }
 }
 
-.prev-hover {
+ 
+
+.prev-hover, &:active, &:focus {
   // border-left: 60px solid rgba($white,0.7);
   @include breakpoint(small down) {
     // border-left: 37px solid rgba($white,0.7);
@@ -86,18 +100,18 @@
     position: absolute;
     content: '';
     top: 50%;
-    margin-top: -(32/2)*1px;
+    
     right: -52px;
     width: 32px;
     height: 32px;
-    background-color: rgba($white,0.7);
+    background-color: rgba($white,0);
     background-image: url("../images/icons/nextArrow.svg");
     background-size: 28px;
     background-repeat: no-repeat;
     background-position: center;
     text-shadow: 1px 1px #FFF;
     @include breakpoint(small down) {
-      margin-top: -(20/2)*1px;
+      
       right: -32px;
       width: 20px;
       height: 20px;
@@ -106,10 +120,14 @@
     }
   }
 
-  &:hover {
+  &:hover, &:active, &:focus {
     // border-right: 60px solid rgba($white, 0.7);
     @include breakpoint(small down) {
       // border-right: 37px solid rgba($white,0.7);
+       &::before {
+        opacity: 0;
+        transform: scale(1);
+      }
     }
 
     &::before {
@@ -144,10 +162,16 @@
   top: 0;
   height: calc(100vh - 80px);
   // width: 40vw;
-  @include breakpoint(small down) {
+  @include breakpoint(large down) {
     width: 10vw;
-    margin-top: 59px;
-    opacity: 0;
+    margin-top: 0px;
+    opacity: 1;
+  }
+  &:before {
+    margin-top: -((32 + 80) / 2)*1px;
+    @include breakpoint(small down) {
+      margin-top: -((20 + 64) / 2)*1px;
+    }
   }
 }
 
@@ -156,8 +180,9 @@
   bottom: 0;
   left: 5vw;
   width: 25vw;
-  height: 67vh;
+  height: 100vh;
   cursor: pointer;
+  z-index: 1;
 }
 
 .click-right {
@@ -167,4 +192,26 @@
   width: 25vw;
   height: 100vh;
   cursor: pointer;
+  z-index: 1;
+}
+
+.single .slick-track {
+
+  @include breakpoint(large down) {
+    display: flex;
+    align-items: center;
+    height: auto;
+    .slick-slide {
+      @include breakpoint(medium down){
+       transform: translateY(0);
+      }
+      height: auto;
+    }
+  }
+  
+}
+.translateY {
+  @include breakpoint(medium down){
+    transform: translateY(-40px);
+  }
 }

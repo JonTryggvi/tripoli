@@ -57,6 +57,9 @@
     line-height: 24px;
     width: 66%;
     height: auto;
+    @include breakpoint(small down) {
+      width: 100%;
+    }
   }
 
   &__links {
@@ -139,6 +142,9 @@
 .news__container__left {
   width: 66%;
   display: inline-block;
+  @include breakpoint(small down) {
+    width: 100%;
+  }
 
   &__img-frame {
     @include aspect-ratio(780, 488, 'news__container__left__img-frame__img');
@@ -156,6 +162,9 @@
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
+  @include breakpoint(small down) {
+    @include hide-for(small);
+  }
 
   &__frame {
     overflow: hidden;
@@ -173,9 +182,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  @include breakpoint(small down) {
-    @include hide-for(small);
-  }
+
 }
 
 .accordion-content {

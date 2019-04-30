@@ -5,7 +5,7 @@
   width: 100vw;
   background-color: $white;
   z-index: 1001;
-  transition: box-shadow 400ms ease-in-out;
+  transition: box-shadow 400ms ease-in-out, top 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   @include breakpoint(medium down){
     display: flex;
     align-items: center;

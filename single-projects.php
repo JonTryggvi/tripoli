@@ -147,7 +147,7 @@ get_header(); ?>
 			<span></span>
 			<span></span>
 		</div>
-		<div class="modal">
+		<div id="prModal" class="modal">
 				<?php foreach ($gallery as $key2 => $value2):
 					if($value2['width'] > $value2['height']) {
 						$imgIsPortmodal = '';
@@ -168,7 +168,7 @@ get_header(); ?>
 					<?php endif; ?>
 					</div>
 					<section class="modal__info">
-						<p class="modal__info__text"><?php the_title(); ?></p>
+				<p class="modal__info__text"><?php the_title(); ?></p> <?php if($value2['description'] !== ''): ?> <p class="modal__info__descripton"><?php echo $value2['description']; ?></p> <?php endif; ?>
 						<p class="modal__info__count"><?php echo $key2 + 1; ?> / <?php echo count($gallery); ?></p>
 					</section>
 				</div>
