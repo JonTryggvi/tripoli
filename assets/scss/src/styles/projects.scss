@@ -110,7 +110,7 @@
   }
 
   #initSlidesMobile {
-    @include hide-for(medium);
+    @include hide-for(small);
     cursor: pointer;
     width: auto;
     height: 24px;
@@ -450,8 +450,10 @@
   min-height: 90vh;
   max-height: 1000vh;
   background-color: $white;
+  display: flex;
+  align-items: center;
   @include breakpoint(small down){
-  min-height: 50vh;
+  min-height: calc(100vh - 64px);
     // max-height: 100vh;
   }
 
@@ -532,12 +534,7 @@
   opacity: 1;
   transition: opacity 300ms ease-in-out ;
 }
-.modalPlaceholderLandscape {
- @include breakpoint(medium down) {
-    min-height: 100vh;
-    // max-height: 90vh;
-  }
-}
+
 
 .toggleDisplay {
   position: fixed;
@@ -615,8 +612,23 @@
 } 
 
 .modalMinHeight {
+  height: 100vh;
+  align-items: center;
   @include breakpoint(small down){
-    min-height: 110vh;
+    align-items: flex-start;
+    height: 110vh;
     // max-height: 100vh;
   }
+}
+
+.modalPlaceholderLandscape {
+ @include breakpoint(medium down) {
+    
+    height: 100vh;
+    overflow: hidden;
+    // max-height: 90vh;
+  }
+}
+.slick-slide {
+  transition: transform 100ms ease;
 }

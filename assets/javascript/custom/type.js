@@ -32,9 +32,10 @@ $(document).on('click', function (e) {
     var link = $(e.target).attr('data-work');
     window.location.href = link;
   } else if (e.target.className.includes('modal-slick-next')) {
-    checkIfImgPort(1);
+
+    checkIfImgPort($('.modal').slick('slickCurrentSlide'), true, 'next');
   } else if (e.target.className.includes('modal-slick-prev')) {
-    checkIfImgPort(-1);
+    checkIfImgPort($('.modal').slick('slickCurrentSlide'), true, 'prev');
   }
 });
 

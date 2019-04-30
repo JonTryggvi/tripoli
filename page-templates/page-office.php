@@ -18,7 +18,7 @@ $mainText = get_field('main_text');
     <main>
       <h2 class="office__h2"><?php echo $theH2; ?></h2>
       <?php echo $mainText; ?>
-      <p class="founders">PARTNERS</p>
+      <p class="founders">Partners</p>
       <?php if( have_rows('founders') ): ?>
         <?php while( have_rows('founders') ): the_row();
               $name = get_sub_field('name');
@@ -39,7 +39,7 @@ $mainText = get_field('main_text');
       <?php endif; ?>
 
       <?php if( have_rows('team') ): ?>
-        <p class="founders">TEAM</p>
+        <p class="founders">Team</p>
         <?php while( have_rows('team') ): the_row();
               $name = get_sub_field('name');
               $edu = get_sub_field('education');

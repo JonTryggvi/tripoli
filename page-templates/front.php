@@ -7,7 +7,7 @@ get_header(); ?>
 <div id="front-hero" role="banner">
 	<div class="fp-slider">
 		<?php do_action( 'foundationpress_before_content' ); ?>
-		<?php $args = array('post_type' => 'projects');
+		<?php $args = array('post_type' => 'projects', 'posts_per_page'=> '-1');
 				  $loop = new WP_Query($args);
 					$i = 0;
 				  if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();

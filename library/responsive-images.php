@@ -31,6 +31,7 @@ function foundationpress_custom_sizes( $sizes ) {
 		'fp-medium' => __( 'FP Medium' ),
 		'fp-large'  => __( 'FP Large' ),
 		'fp-xlarge'  => __( 'FP XLarge' ),
+		'fp-retina'  => __( 'FP RETINA' )
 	) );
 }
 add_filter( 'image_size_names_choose', 'foundationpress_custom_sizes' );

@@ -4,9 +4,6 @@ $(window).load(function() {
   });
   // console.log('load is done');
 });
-
-
-
 // console.log(isLandScape);
 
 window.addEventListener("orientationchange", function () {
@@ -14,6 +11,7 @@ window.addEventListener("orientationchange", function () {
     isLandScape = window.innerHeight < window.innerWidth ? true : false;
     // console.log(isLandScape);
     onMobileOrientChange(isLandScape);
+
   }, 200);
   
 });
